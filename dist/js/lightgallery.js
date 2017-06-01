@@ -1,5 +1,5 @@
 /**!
- * lightgallery.js | 1.0.1 | December 22nd 2016
+ * lightgallery.js | 1.0.1 | June 1st 2017
  * http://sachinchoolur.github.io/lightgallery.js/
  * Copyright (c) 2016 Sachin N; 
  * @license GPLv3 
@@ -624,10 +624,6 @@
      */
     Plugin.prototype.isVideo = function (src, index) {
 
-        if (!src) {
-            throw new Error("Make sure that slide " + index + " has an image/video src");
-        }
-
         var html;
         if (this.s.dynamic) {
             html = this.s.dynamicEl[index].html;
@@ -860,7 +856,7 @@
 
                 _this.___slide[index].insertAdjacentHTML('beforeend', '<div class="lg-video-cont ' + videoClass + ' "><div class="lg-video"><span class="lg-video-play"></span><img class="lg-object lg-has-poster" src="' + _poster + '" /></div></div>');
             } else if (_isVideo) {
-                _this.___slide[index].insertAdjacentHTML('beforeend', '<div class="lg-video-cont "><div class="lg-video"></div></div>');
+                _this.___slide[index].insertAdjacentHTML('beforeend', '<div class="lg-img-wrap">' + _html + '</div>');
                 _lgUtils2.default.trigger(_this.el, 'hasVideo', {
                     index: index,
                     src: _src,
